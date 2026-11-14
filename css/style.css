@@ -115,11 +115,11 @@ main {
 }
 
 .sun {
-  width: 70px;
-  height: 70px;
-  background: radial-gradient(circle, #ffffff 0%, #fff242 30%, #ff8c00 65%, #ff2200 100%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #ffffff 0%, #fff033 35%, #ff9900 70%, #ff3300 100%);
   border-radius: 50%;
-  box-shadow: 0 0 60px rgba(255, 230, 0, 1), 0 0 110px rgba(255, 120, 0, 0.7);
+  box-shadow: 0 0 45px rgba(255, 230, 0, 0.95), 0 0 80px rgba(255, 140, 0, 0.6);
   position: absolute;
   z-index: 2;
 }
