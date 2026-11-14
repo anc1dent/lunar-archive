@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b18">
+  <meta name="description" content="Interactive archive of five space instruments and missions.">
+  <title>Forgotten on the Moon | Lunar Archive</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" data-home>LUNAR <span>ARCHIVE</span></a>
+    <div class="header-tag">NASA Space Apps Challenge : SSU PCTE BTNA</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">A story left on the Moon</p>
+      <h1>Forgotten <span>on the Moon</span></h1>
+      <p class="intro">Five instruments and spacecraft missions. Explore their history and discover why they were needed.</p>
+    </section>
+
+    <section class="solar-stage" aria-label="Interactive Solar System and Devices Map">
+      <div class="solar-system" aria-hidden="true">
+        <div class="orbit orbit-1"><div class="planet-track"><i class="planet mercury"></i></div></div>
+        <div class="orbit orbit-2"><div class="planet-track"><i class="planet venus"></i></div></div>
+        <div class="orbit orbit-3"><div class="planet-track"><i class="planet earth"></i></div></div>
+        <div class="orbit orbit-4"><div class="planet-track"><i class="planet mars"></i></div></div>
+        <div class="sun"></div>
+      </div>
+      <div class="moon" aria-hidden="true"></div>
+      <div class="moon-caption">THE MOON</div>
+
+      <button class="device-card device-1" data-device="0">
+        <span class="device-number">DEVICE 01</span><strong>LRO</strong>
+        <small>Learn more ↗</small>
+      </button>
+      <button class="device-card device-2" data-device="1">
+        <span class="device-number">DEVICE 02</span><strong>Clementine</strong>
+        <small>Learn more ↗</small>
+      </button>
+      <button class="device-card device-3" data-device="2">
+        <span class="device-number">DEVICE 03</span><strong>HelioSwarm</strong>
+        <small>Learn more ↗</small>
+      </button>
+      <button class="device-card device-4" data-device="3">
+        <span class="device-number">DEVICE 04</span><strong>MOMS</strong>
+        <small>Learn more ↗</small>
+      </button>
+      <button class="device-card device-5" data-device="4">
+        <span class="device-number">DEVICE 05</span><strong>Opportunity</strong>
+        <small>Learn more ↗</small>
+      </button>
+      <p class="stage-hint">INTERACTIVE MAP · SELECT A DEVICE</p>
+    </section>
+
+    <section class="detail-panel" id="detail" aria-live="polite" hidden>
+      <div class="detail-toolbar">
+        <button class="back-button" id="back-button">← Back to home</button>
+        <span class="eyebrow" id="detail-index">DEVICE 01 / 05</span>
+      </div>
+      <div class="detail-layout">
+        <div class="photo-frame" id="photo-frame">
+          <img id="device-image" alt="" hidden>
+          <div class="photo-placeholder" id="photo-placeholder">
+            <span class="placeholder-symbol">◈</span>
+            <strong>Photo placeholder</strong>
+            <small>Device photo will be added later</small>
+          </div>
+        </div>
+        <article class="device-copy">
+          <p class="eyebrow">LUNAR OBJECT DATABASE</p>
+          <h2 id="detail-title">Device Name</h2>
+          <p id="detail-description" style="white-space: pre-line;"></p>
+          <div class="facts-grid">
+            <div class="fact"><small>Launch / Year</small><strong id="detail-year">TBA</strong></div>
+            <div class="fact"><small>Mission</small><strong id="detail-mission">TBA</strong></div>
+            <div class="fact"><small>Purpose</small><strong id="detail-purpose">TBA</strong></div>
+            <div class="fact"><small>Status</small><strong id="detail-status">TBA</strong></div>
+          </div>
+          <p class="source-line" id="detail-source"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>SSU PCTE BTNA : NASA Space Apps Challenge</footer>
+  <script src="js/devices.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
