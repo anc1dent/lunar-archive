@@ -1,12 +1,98 @@
-/* --- Solar System Stage / Background --- */
+/* Lunar Archive — Solar System Design */
+:root {
+  --background: #070b18;
+  --panel: rgba(17, 25, 48, .82);
+  --border: rgba(155, 184, 255, .22);
+  --text: #f3f6ff;
+  --muted: #aab6d3;
+  --cyan: #79d9ff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0; 
+  min-height: 100vh; 
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(ellipse at 50% 0%, #18264a 0%, #0a1023 42%, #050812 100%);
+}
+
+body::before {
+  content: ""; 
+  position: fixed; 
+  inset: 0; 
+  pointer-events: none; 
+  opacity: .5;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 76% 22%, #bcd8ff 99%, transparent),
+    radial-gradient(2px 2px at 42% 70%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 88% 81%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 22% 88%, #bcd8ff 99%, transparent);
+  background-size: 270px 240px;
+}
+
+.site-header {
+  position: relative; 
+  z-index: 10; 
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  padding: 22px clamp(18px, 5vw, 72px);
+  border-bottom: 1px solid rgba(255,255,255,.08); 
+  backdrop-filter: blur(14px);
+}
+
+.brand { color: var(--text); text-decoration: none; font-weight: 850; letter-spacing: .12em; font-size: 13px; }
+.brand span { color: var(--cyan); }
+.header-tag { color: var(--muted); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; }
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin: 0 0 1rem;
+}
+
+.hero h1 span {
+  color: var(--cyan);
+}
+
+.intro {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* --- Solar System Stage --- */
 .solar-stage {
   position: relative;
-  min-height: 480px;
+  min-height: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1rem 6rem;
+  padding: 4rem 1rem 5rem;
   overflow: hidden;
   background: radial-gradient(circle at center, #101735 0%, #070b18 70%);
   border-radius: 20px;
@@ -22,7 +108,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.35; /* Робимо фон делікатним, щоб не відволікати від карток */
+  opacity: 0.4;
 }
 
 .sun {
@@ -30,7 +116,7 @@
   height: 50px;
   background: radial-gradient(circle, #ffcc00 0%, #ff6600 100%);
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(255, 153, 0, 0.6);
+  box-shadow: 0 0 35px rgba(255, 153, 0, 0.6);
   position: absolute;
   z-index: 2;
 }
@@ -42,10 +128,10 @@
   animation: spin linear infinite;
 }
 
-.orbit-1 { width: 120px; height: 120px; animation-duration: 8s; }
-.orbit-2 { width: 200px; height: 200px; animation-duration: 14s; }
-.orbit-3 { width: 290px; height: 290px; animation-duration: 22s; }
-.orbit-4 { width: 390px; height: 390px; animation-duration: 32s; }
+.orbit-1 { width: 140px; height: 140px; animation-duration: 10s; }
+.orbit-2 { width: 230px; height: 230px; animation-duration: 18s; }
+.orbit-3 { width: 330px; height: 330px; animation-duration: 26s; }
+.orbit-4 { width: 430px; height: 430px; animation-duration: 35s; }
 
 .planet-track {
   width: 100%;
@@ -57,31 +143,168 @@
   position: absolute;
   border-radius: 50%;
   top: 50%;
-  left: -5px;
+  left: -6px;
   transform: translateY(-50%);
 }
 
-.planet.mercury { width: 8px; height: 8px; background: #b0b0b0; }
-.planet.venus { width: 12px; height: 12px; background: #e3bb76; }
-.planet.earth { width: 14px; height: 14px; background: #4b89ff; }
-.planet.mars { width: 10px; height: 10px; background: #d15c36; }
+.planet.mercury { width: 10px; height: 10px; background: #b0b0b0; }
+.planet.venus { width: 14px; height: 14px; background: #e3bb76; }
+.planet.earth { width: 16px; height: 16px; background: #4b89ff; box-shadow: 0 0 8px #4b89ff; }
+.planet.mars { width: 12px; height: 12px; background: #d15c36; }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* Місяць та інші підписи залишаємо атмосферними акцентами */
-.moon {
-  display: none; /* Хочеш — можемо повністю прибрати або залишити як стильну плашку позаду */
+.moon, .moon-caption { display: none; }
+
+/* Device Cards Positioning */
+.device-card {
+  position: absolute;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 5;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
+.device-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(121, 217, 255, 0.2);
+}
+
+.device-number {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+  margin-bottom: 2px;
+}
+
+.device-card strong {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.device-card small {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* Розподіл карток по кутах навколо орбіт */
+.device-1 { top: 35px; left: 40px; }
+.device-2 { top: 35px; right: 40px; }
+.device-3 { bottom: 65px; left: 40px; }
+.device-4 { bottom: 65px; right: 40px; }
+.device-5 { bottom: 15px; left: 50%; transform: translateX(-50%); }
+
 .stage-hint {
-  position: relative;
+  position: absolute;
+  bottom: 20px;
   z-index: 5;
-  margin-top: 2rem;
   letter-spacing: 2px;
-  font-size: 0.85rem;
-  color: #8b9bb4;
+  font-size: 0.75rem;
+  color: var(--muted);
   text-transform: uppercase;
 }
+
+/* Detail Panel & Footer */
+.detail-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 2rem 0;
+  backdrop-filter: blur(12px);
+}
+
+.detail-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.back-button:hover { background: rgba(255,255,255,0.05); }
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-placeholder {
+  text-align: center;
+  color: var(--muted);
+}
+
+.placeholder-symbol { font-size: 2rem; display: block; margin-bottom: 5px; }
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.fact {
+  background: rgba(255,255,255,0.03);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.fact small { display: block; color: var(--muted); font-size: 0.75rem; margin-bottom: 3px; }
+.fact strong { font-size: 0.9rem; }
+
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 4rem;
+}
+
+/* Mobile Responsiveness */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .solar-stage {
+    min-height: 500px;
+    padding: 2
