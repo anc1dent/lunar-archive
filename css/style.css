@@ -1,4 +1,4 @@
-/* Lunar Archive — Solar System Design */
+/* Lunar Archive — Full Solar System Design */
 :root {
   --background: #070b18;
   --panel: rgba(17, 25, 48, .82);
@@ -105,36 +105,40 @@ main {
   top: 44%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 440px;
-  height: 440px;
+  width: 460px;
+  height: 460px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.45;
+  opacity: 0.55;
 }
 
 .sun {
-  width: 46px;
-  height: 46px;
-  background: radial-gradient(circle, #ffcc00 0%, #ff6600 100%);
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(circle, #fff3a1 0%, #ffaa00 55%, #ff5500 100%);
   border-radius: 50%;
-  box-shadow: 0 0 35px rgba(255, 153, 0, 0.6);
+  box-shadow: 0 0 28px rgba(255, 165, 0, 0.75);
   position: absolute;
   z-index: 2;
 }
 
 .orbit {
   position: absolute;
-  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border: 1px dashed rgba(255, 255, 255, 0.14);
   border-radius: 50%;
   animation: spin linear infinite;
 }
 
-.orbit-1 { width: 120px; height: 120px; animation-duration: 10s; }
-.orbit-2 { width: 200px; height: 200px; animation-duration: 18s; }
-.orbit-3 { width: 290px; height: 290px; animation-duration: 26s; }
-.orbit-4 { width: 380px; height: 380px; animation-duration: 35s; }
+.orbit-1 { width: 74px;  height: 74px;  animation-duration: 7s; }
+.orbit-2 { width: 112px; height: 112px; animation-duration: 11s; }
+.orbit-3 { width: 154px; height: 154px; animation-duration: 16s; }
+.orbit-4 { width: 196px; height: 196px; animation-duration: 22s; }
+.orbit-5 { width: 254px; height: 254px; animation-duration: 32s; }
+.orbit-6 { width: 318px; height: 318px; animation-duration: 42s; }
+.orbit-7 { width: 376px; height: 376px; animation-duration: 54s; }
+.orbit-8 { width: 430px; height: 430px; animation-duration: 68s; }
 
 .planet-track {
   width: 100%;
@@ -146,14 +150,29 @@ main {
   position: absolute;
   border-radius: 50%;
   top: 50%;
-  left: -6px;
-  transform: translateY(-50%);
+  left: 0;
+  transform: translate(-50%, -50%);
 }
 
-.planet.mercury { width: 10px; height: 10px; background: #b0b0b0; }
-.planet.venus { width: 14px; height: 14px; background: #e3bb76; }
-.planet.earth { width: 16px; height: 16px; background: #4b89ff; box-shadow: 0 0 8px #4b89ff; }
-.planet.mars { width: 12px; height: 12px; background: #d15c36; }
+.planet.mercury { width: 6px;  height: 6px;  background: #b5b5b5; }
+.planet.venus   { width: 9px;  height: 9px;  background: #e6c27a; }
+.planet.earth   { width: 10px; height: 10px; background: #4b9aff; box-shadow: 0 0 6px #4b9aff; }
+.planet.mars    { width: 8px;  height: 8px;  background: #d95b38; }
+.planet.jupiter { width: 18px; height: 18px; background: radial-gradient(circle at 35% 35%, #e6c39c, #b57c4c); }
+.planet.saturn  { width: 14px; height: 14px; background: #ebd398; }
+.planet.saturn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 7px;
+  border: 2px solid rgba(235, 211, 152, 0.75);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-22deg);
+}
+.planet.uranus  { width: 11px; height: 11px; background: #7ce3eb; }
+.planet.neptune { width: 11px; height: 11px; background: #466eff; }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -162,7 +181,7 @@ main {
 
 .moon, .moon-caption { display: none; }
 
-/* Device Cards Positioning */
+/* Device Cards Positioning (збалансовані відступи) */
 .device-card {
   position: absolute;
   background: var(--panel);
@@ -207,7 +226,7 @@ main {
   color: var(--muted);
 }
 
-/* Розподіл карток навколо орбіт без накладання */
+/* Розподіл карток ближче до орбіт (відсотки для адаптивності) */
 .device-1 { top: 65px; left: 16%; }
 .device-2 { top: 65px; right: 16%; }
 .device-3 { bottom: 155px; left: 16%; }
@@ -345,6 +364,39 @@ footer {
     width: 280px;
     height: 280px;
   }
-  .orbit-1 { width: 80px; height: 80px; }
-  .orbit-2 { width: 135px; height: 135px; }
-  .orbit-3 { width: 195px; height: 1
+  .orbit-1 { width: 52px;  height: 52px; }
+  .orbit-2 { width: 78px;  height: 78px; }
+  .orbit-3 { width: 106px; height: 106px; }
+  .orbit-4 { width: 134px; height: 134px; }
+  .orbit-5 { width: 170px; height: 170px; }
+  .orbit-6 { width: 208px; height: 208px; }
+  .orbit-7 { width: 242px; height: 242px; }
+  .orbit-8 { width: 274px; height: 274px; }
+
+  .device-card {
+    padding: 8px 12px;
+  }
+  .device-card strong { font-size: 0.8rem; }
+  .device-number { font-size: 0.55rem; }
+  .device-card small { display: none; }
+
+  .device-1 { top: 16px; left: 10px; }
+  .device-2 { top: 16px; right: 10px; }
+  .device-3 { bottom: 96px; left: 10px; }
+  .device-4 { bottom: 96px; right: 10px; }
+  .device-5 { bottom: 44px; left: 50%; transform: translateX(-50%); }
+
+  .stage-hint {
+    bottom: 14px;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-frame {
+    position: static;
+  }
+}
