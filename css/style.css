@@ -115,15 +115,14 @@ main {
 }
 
 .sun {
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, #ffffff 0%, #fff033 35%, #ff9900 70%, #ff3300 100%);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #ffffff 0%, #fff242 30%, #ff8c00 65%, #ff2200 100%);
   border-radius: 50%;
-  box-shadow: 0 0 45px rgba(255, 230, 0, 0.95), 0 0 80px rgba(255, 140, 0, 0.6);
+  box-shadow: 0 0 60px rgba(255, 230, 0, 1), 0 0 110px rgba(255, 120, 0, 0.7);
   position: absolute;
   z-index: 2;
 }
-
 .orbit {
   position: absolute;
   border: 1px dashed rgba(255, 255, 255, 0.14);
@@ -154,25 +153,26 @@ main {
   transform: translate(-50%, -50%);
 }
 
-.planet.mercury { width: 9px;  height: 9px;  background: #c2c2c2; }
-.planet.venus   { width: 13px; height: 13px; background: #e8cca1; }
-.planet.earth   { width: 15px; height: 15px; background: #4b9aff; box-shadow: 0 0 8px #4b9aff; }
-.planet.mars    { width: 12px; height: 12px; background: #e06038; }
-.planet.jupiter { width: 24px; height: 24px; background: radial-gradient(circle at 35% 35%, #f0d4b4, #b57c4c); }
-.planet.saturn  { width: 20px; height: 20px; background: #f0deb8; }
+/* Збільшені розміри планет */
+.planet.mercury { width: 12px; height: 12px; background: #c2c2c2; }
+.planet.venus   { width: 16px; height: 16px; background: #e8cca1; }
+.planet.earth   { width: 19px; height: 19px; background: #4b9aff; box-shadow: 0 0 10px #4b9aff; }
+.planet.mars    { width: 15px; height: 15px; background: #e06038; }
+.planet.jupiter { width: 30px; height: 30px; background: radial-gradient(circle at 35% 35%, #f0d4b4, #b57c4c); }
+.planet.saturn  { width: 25px; height: 25px; background: #f0deb8; }
 .planet.saturn::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 36px;
-  height: 10px;
-  border: 2.5px solid rgba(240, 222, 184, 0.85);
+  width: 44px;
+  height: 12px;
+  border: 3px solid rgba(240, 222, 184, 0.85);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotate(-22deg);
 }
-.planet.uranus  { width: 16px; height: 16px; background: #8cf0fc; }
-.planet.neptune { width: 16px; height: 16px; background: #5c82ff; }
+.planet.uranus  { width: 20px; height: 20px; background: #8cf0fc; }
+.planet.neptune { width: 20px; height: 20px; background: #5c82ff; }
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
