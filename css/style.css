@@ -208,10 +208,10 @@ main {
 }
 
 /* Розподіл карток навколо орбіт без накладання */
-.device-1 { top: 32px; left: 40px; }
-.device-2 { top: 32px; right: 40px; }
-.device-3 { bottom: 135px; left: 40px; }
-.device-4 { bottom: 135px; right: 40px; }
+.device-1 { top: 65px; left: 16%; }
+.device-2 { top: 65px; right: 16%; }
+.device-3 { bottom: 155px; left: 16%; }
+.device-4 { bottom: 155px; right: 16%; }
 .device-5 { bottom: 52px; left: 50%; transform: translateX(-50%); }
 
 .stage-hint {
