@@ -115,11 +115,11 @@ main {
 }
 
 .sun {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   background: radial-gradient(circle, #fff3a1 0%, #ffaa00 55%, #ff5500 100%);
   border-radius: 50%;
-  box-shadow: 0 0 28px rgba(255, 165, 0, 0.75);
+  box-shadow: 0 0 35px rgba(255, 165, 0, 0.85);
   position: absolute;
   z-index: 2;
 }
@@ -154,26 +154,25 @@ main {
   transform: translate(-50%, -50%);
 }
 
-.planet.mercury { width: 6px;  height: 6px;  background: #b5b5b5; }
-.planet.venus   { width: 9px;  height: 9px;  background: #e6c27a; }
-.planet.earth   { width: 10px; height: 10px; background: #4b9aff; box-shadow: 0 0 6px #4b9aff; }
-.planet.mars    { width: 8px;  height: 8px;  background: #d95b38; }
-.planet.jupiter { width: 18px; height: 18px; background: radial-gradient(circle at 35% 35%, #e6c39c, #b57c4c); }
-.planet.saturn  { width: 14px; height: 14px; background: #ebd398; }
+.planet.mercury { width: 9px;  height: 9px;  background: #c2c2c2; }
+.planet.venus   { width: 13px; height: 13px; background: #e8cca1; }
+.planet.earth   { width: 15px; height: 15px; background: #4b9aff; box-shadow: 0 0 8px #4b9aff; }
+.planet.mars    { width: 12px; height: 12px; background: #e06038; }
+.planet.jupiter { width: 24px; height: 24px; background: radial-gradient(circle at 35% 35%, #f0d4b4, #b57c4c); }
+.planet.saturn  { width: 20px; height: 20px; background: #f0deb8; }
 .planet.saturn::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 26px;
-  height: 7px;
-  border: 2px solid rgba(235, 211, 152, 0.75);
+  width: 36px;
+  height: 10px;
+  border: 2.5px solid rgba(240, 222, 184, 0.85);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotate(-22deg);
 }
-.planet.uranus  { width: 11px; height: 11px; background: #7ce3eb; }
-.planet.neptune { width: 11px; height: 11px; background: #466eff; }
-
+.planet.uranus  { width: 16px; height: 16px; background: #8cf0fc; }
+.planet.neptune { width: 16px; height: 16px; background: #5c82ff; }
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
