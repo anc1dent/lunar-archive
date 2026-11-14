@@ -12,18 +12,18 @@
 html { scroll-behavior: smooth; }
 
 body {
-  margin: 0; 
-  min-height: 100vh; 
+  margin: 0;
+  min-height: 100vh;
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: radial-gradient(ellipse at 50% 0%, #18264a 0%, #0a1023 42%, #050812 100%);
 }
 
 body::before {
-  content: ""; 
-  position: fixed; 
-  inset: 0; 
-  pointer-events: none; 
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   opacity: .5;
   background-image:
     radial-gradient(1px 1px at 12% 18%, #fff 99%, transparent),
@@ -35,13 +35,13 @@ body::before {
 }
 
 .site-header {
-  position: relative; 
-  z-index: 10; 
-  display: flex; 
+  position: relative;
+  z-index: 10;
+  display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   padding: 22px clamp(18px, 5vw, 72px);
-  border-bottom: 1px solid rgba(255,255,255,.08); 
+  border-bottom: 1px solid rgba(255,255,255,.08);
   backdrop-filter: blur(14px);
 }
 
@@ -87,12 +87,12 @@ main {
 /* --- Solar System Stage --- */
 .solar-stage {
   position: relative;
-  min-height: 540px;
+  min-height: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1rem 5rem;
+  padding: 3rem 1rem 6rem;
   overflow: hidden;
   background: radial-gradient(circle at center, #101735 0%, #070b18 70%);
   border-radius: 20px;
@@ -102,18 +102,21 @@ main {
 
 .solar-system {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.45;
 }
 
 .sun {
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   background: radial-gradient(circle, #ffcc00 0%, #ff6600 100%);
   border-radius: 50%;
   box-shadow: 0 0 35px rgba(255, 153, 0, 0.6);
@@ -123,15 +126,15 @@ main {
 
 .orbit {
   position: absolute;
-  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border: 1px dashed rgba(255, 255, 255, 0.16);
   border-radius: 50%;
   animation: spin linear infinite;
 }
 
-.orbit-1 { width: 140px; height: 140px; animation-duration: 10s; }
-.orbit-2 { width: 230px; height: 230px; animation-duration: 18s; }
-.orbit-3 { width: 330px; height: 330px; animation-duration: 26s; }
-.orbit-4 { width: 430px; height: 430px; animation-duration: 35s; }
+.orbit-1 { width: 120px; height: 120px; animation-duration: 10s; }
+.orbit-2 { width: 200px; height: 200px; animation-duration: 18s; }
+.orbit-3 { width: 290px; height: 290px; animation-duration: 26s; }
+.orbit-4 { width: 380px; height: 380px; animation-duration: 35s; }
 
 .planet-track {
   width: 100%;
@@ -183,6 +186,10 @@ main {
   box-shadow: 0 12px 30px rgba(121, 217, 255, 0.2);
 }
 
+.device-5:hover {
+  transform: translate(-50%, -3px);
+}
+
 .device-number {
   font-size: 0.65rem;
   letter-spacing: 0.15em;
@@ -200,21 +207,27 @@ main {
   color: var(--muted);
 }
 
-/* Розподіл карток по кутах навколо орбіт */
-.device-1 { top: 35px; left: 40px; }
-.device-2 { top: 35px; right: 40px; }
-.device-3 { bottom: 65px; left: 40px; }
-.device-4 { bottom: 65px; right: 40px; }
-.device-5 { bottom: 15px; left: 50%; transform: translateX(-50%); }
+/* Розподіл карток навколо орбіт без накладання */
+.device-1 { top: 32px; left: 40px; }
+.device-2 { top: 32px; right: 40px; }
+.device-3 { bottom: 135px; left: 40px; }
+.device-4 { bottom: 135px; right: 40px; }
+.device-5 { bottom: 52px; left: 50%; transform: translateX(-50%); }
 
 .stage-hint {
   position: absolute;
-  bottom: 20px;
-  z-index: 5;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  z-index: 4;
   letter-spacing: 2px;
   font-size: 0.75rem;
   color: var(--muted);
   text-transform: uppercase;
+  pointer-events: none;
 }
 
 /* Detail Panel & Footer */
@@ -231,7 +244,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .back-button {
@@ -249,13 +262,15 @@ main {
 .detail-layout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
-  align-items: center;
+  gap: 32px;
+  align-items: start;
 }
 
 .photo-frame {
+  position: sticky;
+  top: 24px;
   width: 100%;
-  aspect-ratio: 16/10;
+  min-height: 240px;
   background: rgba(0,0,0,0.3);
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -265,12 +280,28 @@ main {
   overflow: hidden;
 }
 
+#device-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+#device-image[hidden] {
+  display: none;
+}
+
 .photo-placeholder {
   text-align: center;
   color: var(--muted);
+  padding: 40px 20px;
 }
 
 .placeholder-symbol { font-size: 2rem; display: block; margin-bottom: 5px; }
+
+.device-copy h2 {
+  margin-top: 0;
+}
 
 .facts-grid {
   display: grid;
@@ -306,5 +337,14 @@ footer {
 
 @media (max-width: 768px) {
   .solar-stage {
-    min-height: 500px;
-    padding: 2
+    min-height: 540px;
+    padding: 2rem 10px 5rem;
+  }
+  .solar-system {
+    top: 43%;
+    width: 280px;
+    height: 280px;
+  }
+  .orbit-1 { width: 80px; height: 80px; }
+  .orbit-2 { width: 135px; height: 135px; }
+  .orbit-3 { width: 195px; height: 1
